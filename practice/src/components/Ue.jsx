@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react'
 
 const Ue = () => {
     const [items, setItems] = useState('')
+    const [width,setWidth]=useState(window.innerWidth)
 
-
-
+    useEffect(()=>{
+        window.addEventListener('resize',()=>{
+            setWidth(window.innerWidth)
+        })
+    })
     const [resource, setResource] = useState('posts')
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/${resource}`)
@@ -27,7 +31,8 @@ const Ue = () => {
                     {JSON.stringify(item)}
                 </pre>
             ))} */}
-            <div>{JSON.stringify(items)}</div>
+            {/* <div>{JSON.stringify(items)}</div>  */}
+            <div>{width}</div>
         </div>
     )
 }
