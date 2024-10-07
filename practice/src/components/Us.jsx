@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react'
 export default function Us() {
     const [num, setNum] = useState(abc)
     const isInitialRender = useRef(true);  // track initial render
-    const a = useRef(0)
+    const a = useRef()
     useEffect(() => {
         // Skip the effect on initial render
         // if (isInitialRender.current) {
@@ -12,10 +12,11 @@ export default function Us() {
         // }
 
         // This will run only after the initial render
-        a.current += 1;
-        console.log(`Value of a is ${a.current}`);
+        // a.current += 1;
+        // console.log(`Value of a is ${a.current}`);
+        a.current.style.backgroundColor='red'
 
-    }, [num]);
+    }, []);
     function abc() {
         console.log('rerender')
         return 8
@@ -49,11 +50,11 @@ export default function Us() {
         <div className=''>
             <div className='flex '>
                 <div onClick={decrement} className='bg-slate-400 p-1'>-</div>
-                <div>{num}</div>
+                <div ref={a}>{num}</div>
 
                 {/* <div>{num.theme}</div> */}
                 <div onClick={increment} className='bg-slate-400 p-1'>+</div>
-                <div>this is the value of a {a.current}</div>
+                <div>this is the value of a </div>
             </div>
 
         </div>
