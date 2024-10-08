@@ -5,13 +5,15 @@ import './index.css'
 import Us from './components/Us'
 import Ue from './components/Ue'
 import Um from './components/Um'
-
+import StopWatch from './components/StopWatch'
 createRoot(document.getElementById('root')).render(
 
   <div>
-    <Us />
+    {/* <Us /> */}
     {/* <Ue/> */}
-    <Um />
+    {/* <Um /> */}
+    <StopWatch/>
+    
   </div>
 
 
