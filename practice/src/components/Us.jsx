@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react'
 
 export default function Us() {
     const [num, setNum] = useState(abc)
-    const isInitialRender = useRef(true);  // track initial render
-    const a = useRef()
+    // const isInitialRender = useRef(true);  // track initial render
+    let a = useRef(0);
+    let rana = useRef();
     useEffect(() => {
         // Skip the effect on initial render
         // if (isInitialRender.current) {
@@ -13,10 +14,11 @@ export default function Us() {
 
         // This will run only after the initial render
         // a.current += 1;
-        // console.log(`Value of a is ${a.current}`);
-        a.current.style.backgroundColor='red'
+        a.current = a.current + 1
+        console.log(`Value of a is ${a.current}`);
+        // a.current.style.backgroundColor='red'
 
-    }, []);
+    });
     function abc() {
         console.log('rerender')
         return 8
@@ -35,6 +37,7 @@ export default function Us() {
         setNum(preNum => preNum - 1)
         // setNum(num - 1)
         // setNum(num - 1)
+        rana.current.style.backgroundColor = 'red'
     }
     const increment = () => {
         // setNum(preNum => {
@@ -44,17 +47,19 @@ export default function Us() {
         //     }
         // })
         setNum(preNum => preNum + 1)
+        rana.current.style.backgroundColor = 'green '
     }
-    console.log('hello world')
+    // console.log('hello world')
     return (
         <div className=''>
             <div className='flex '>
                 <div onClick={decrement} className='bg-slate-400 p-1'>-</div>
-                <div ref={a}>{num}</div>
+                {/* <div ref={a}>{num}</div>  */}
+                <div>{num}</div>
 
                 {/* <div>{num.theme}</div> */}
                 <div onClick={increment} className='bg-slate-400 p-1'>+</div>
-                <div>this is the value of a </div>
+                <div ref={rana}>this is the value of a </div>
             </div>
 
         </div>
