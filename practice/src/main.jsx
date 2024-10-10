@@ -6,14 +6,18 @@ import Us from './components/Us'
 import Ue from './components/Ue'
 import Um from './components/Um'
 import StopWatch from './components/StopWatch'
+import Button, { Btn3 } from './components/Button'
 createRoot(document.getElementById('root')).render(
 
   <div>
     {/* <Us /> */}
     {/* <Ue/> */}
     {/* <Um /> */}
-    <StopWatch/>
-    
+    {/* <StopWatch/> */}
+    <Button />
+    <Btn3 />
+
+
   </div>
 
 
