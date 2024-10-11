@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+
 
 function App() {
   const [formValues, setFormValues] = useState({
@@ -15,6 +15,11 @@ function App() {
       [name]: value, // Update the specific field based on the input's name attribute
     });
   };
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+    console.log("Form Data:", formValues); // Log the entire form data
+  };
+  
 
   return (
     <form onSubmit={handleSubmit}>
@@ -63,7 +68,10 @@ function App() {
       <br />
 
       <button type="submit">Submit</button>
+      <input type="text" onChange={(e) => setA(e.target.value)} />
+      
     </form>
+
 
   )
 }

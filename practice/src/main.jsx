@@ -7,9 +7,11 @@ import Ue from './components/Ue'
 import Um from './components/Um'
 import StopWatch from './components/StopWatch'
 import Button, { Btn3 } from './components/Button'
+import App from './App'
 createRoot(document.getElementById('root')).render(
 
   <div>
+    <App />
     {/* <Us /> */}
     {/* <Ue/> */}
     {/* <Um /> */}
