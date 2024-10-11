@@ -14,8 +14,8 @@ createRoot(document.getElementById('root')).render(
     {/* <Ue/> */}
     {/* <Um /> */}
     {/* <StopWatch/> */}
-    <Button />
-    <Btn3 />
+    {/* <Button />
+    <Btn3 /> */}
 
 
   </div>
