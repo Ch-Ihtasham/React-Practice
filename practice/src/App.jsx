@@ -70,6 +70,7 @@ function App() {
       <button type="submit">Submit</button>
       <input type="text" onChange={(e) => setA(e.target.value)} />
       
+      
     </form>
 
 
