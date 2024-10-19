@@ -44,6 +44,7 @@ const router = createBrowserRouter(
       <Route path='blog' element={<Blog />} />
       <Route path='about' element={<About />} />
       <Route path='contact' element={<Contact />} />
+      
       <Route
         loader={async () => {
           const response = await fetch('https://api.github.com/users/ch-ihtasham')
