@@ -8,6 +8,7 @@ import Contact from './pages/Contact'
 import Blog from './pages/Blog'
 import App from './App'
 import Users from './pages/Users'
+import Github from './pages/Github'
 // const router = createBrowserRouter([
 //   {
 //     path: '/',
@@ -42,6 +43,13 @@ const router = createBrowserRouter(
       <Route path='blog' element={<Blog />} />
       <Route path='about' element={<About />} />
       <Route path='contact' element={<Contact />} />
+      <Route
+        loader={async () => {
+          const response = await fetch('https://api.github.com/users/ch-ihtasham')
+          return response.json()
+        }}
+        path='github'
+        element={<Github />} />
       <Route path='users/:userid' element={<Users />} />
     </Route>
   )
