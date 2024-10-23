@@ -6,6 +6,7 @@ export default function SubChild() {
     return (
         <div>
             this is subchild{ans}
+            
         </div>
     )
 }
