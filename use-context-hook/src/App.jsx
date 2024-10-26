@@ -1,16 +1,22 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Parent from './components/parent'
 import { myContext } from './context/context'
+
+
 function App() {
+
   const [count, setCount] = useState(0)
+
+  
 
   return (
     <>
       <myContext.Provider value={count}>
         <Parent />
+      
         <div>
           <a href="https://vite.dev" target="_blank">
             <img src={viteLogo} className="logo" alt="Vite logo" />
