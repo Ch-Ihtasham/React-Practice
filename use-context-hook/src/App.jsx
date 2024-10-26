@@ -9,14 +9,23 @@ import { myContext } from './context/context'
 function App() {
 
   const [count, setCount] = useState(0)
+  const expensiveComputation = (num) => {
+    console.log('Calculating...');
+    // Simulate a heavy computation
+    let total = 0;
+    for (let i = 0; i < 1e6; i++) {
+      total += i * num;
+    }
+    return total;
+  };
 
-  
-
+  const memoizedValue=expensiveComputation(count)
+  // const memoizedValue = useMemo(() => expensiveComputation(count), [count]);
   return (
     <>
       <myContext.Provider value={count}>
         <Parent />
-      
+        <h2>Memoized Value: {memoizedValue}</h2>
         <div>
           <a href="https://vite.dev" target="_blank">
             <img src={viteLogo} className="logo" alt="Vite logo" />
