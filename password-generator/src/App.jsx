@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { useCallback, useEffect, useState } from 'react'
 
 
@@ -6,6 +7,7 @@ function App() {
   const [numberAllowed, setNumberAllowed] = useState(false)
   const [charAllowed, setCharAllowed] = useState(false)
   const [password, setPassword] = useState('')
+  const copyPass = useRef(null)
   const passwordGenerator = useCallback(() => {
     let pass = ''
     let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
@@ -18,18 +20,38 @@ function App() {
     }
     console.log(pass)
     setPassword(pass)
-    
+
 
   }, [length, numberAllowed, charAllowed, setPassword])
-  useEffect(()=>{
+  useEffect(() => {
     passwordGenerator()
-  },[length, numberAllowed, charAllowed, setPassword])
-  
+  }, [length, numberAllowed, charAllowed, setPassword])
 
+  const passCopy = useCallback(() => {
+    copyPass.current.select()
+    window.navigator.clipboard.writeText(password)
 
+  }, [password])
   return (
     <>
-     <div>hello {password}</div> 
+
+      <input type="text"
+        value={password}
+        readOnly
+        ref={copyPass}
+      />
+      <input type="range"
+        value={length}
+        min={6}
+        max={100}
+        onChange={(e) => {
+          setLength(e.target.value)
+        }}
+
+      />
+      <label>length:{length}</label>
+
+      <button onClick={passCopy}>copy</button>
 
     </>
   )
