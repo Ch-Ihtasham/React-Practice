@@ -17,8 +17,8 @@ class Class1 extends Component {
     increment() {
         this.setState({
             count: this.state.count + 1
-        }, () => { console.log('callback Value,' this.state.count) })
-        
+        }, () => { console.log('callback Value', this.state.count) })
+
     }
     render() {
         return (
